@@ -37,5 +37,7 @@ Route::post('post', [PostController::class, 'store'])
 
 Route::get('post/create', [PostController::class, 'create']);
 Route::get('post', [PostController::class, 'index']);
+Route::get('post/show/{post}', [PostController::class, 'show'])
+->name('post.show');
 
 require __DIR__.'/auth.php';

@@ -13,7 +13,7 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        Gate::authorize('test');
+        //Gate::authorize('test');
 
         $validated = $request->validate([
             'title' => 'required|max:20',
@@ -37,5 +37,9 @@ class PostController extends Controller
     public function index() {
         $posts=Post::where('user_id', auth()->id())->get();
         return view('post.index', compact('posts'));
+    }
+
+    public function show(Post $post) {
+        return view('post.show', compact('post'));
     }
 }
