@@ -16,6 +16,9 @@
         </style>
     </head>
     <body class="antialiased">
+        @can('test')
+            test gate
+        @endcan
         @auth
             <p>
                 {{ Auth::user()->name }}san hello

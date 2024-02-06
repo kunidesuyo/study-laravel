@@ -20,7 +20,7 @@ Route::get('/test', [TestController::class, 'test'])
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,9 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::post('post', [PostController::class, 'store'])
 ->name('post.store');
 
-Route::middleware(['auth', 'admin'])->group(function(){
-    Route::get('post/create', [PostController::class, 'create']);
-    Route::get('post', [PostController::class, 'index']);
-});
+Route::get('post/create', [PostController::class, 'create']);
+Route::get('post', [PostController::class, 'index']);
 
 require __DIR__.'/auth.php';
