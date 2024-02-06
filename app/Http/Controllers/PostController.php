@@ -18,16 +18,18 @@ class PostController extends Controller
             'body' => 'required|max:400',
         ]);
 
+        $validated['user_id'] = auth()->id();
+
         $post = Post::create($validated);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
+        // $post = Post::create([
+        //     'title' => $request->title,
+        //     'body' => $request->body
+        // ]);
 
-        // $request->session()->flash('message', '保存しました');
+        $request->session()->flash('message', '保存しました');
 
-        return back()->with('message', '保存しました');
+        return back();
     }
 
     public function index() {
