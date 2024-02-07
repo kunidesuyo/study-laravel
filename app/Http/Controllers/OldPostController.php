@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -23,7 +24,7 @@ class PostController extends Controller
 
         $request->session()->flash('message', '保存しました');
 
-        return redirect()->route('post.index');
+        return back();
     }
 
     public function index() {
@@ -51,7 +52,7 @@ class PostController extends Controller
 
         $request->session()->flash('message', '更新しました');
 
-        return redirect()->route('post.show', compact('post'));
+        return back();
         
     }
 
