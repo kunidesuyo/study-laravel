@@ -23,7 +23,8 @@ class PostController extends Controller
 
         $request->session()->flash('message', '保存しました');
 
-        return redirect()->route('post.index');
+        // return redirect()->route('post.index');
+        return redirect()->route('post.create');
     }
 
     public function index() {
